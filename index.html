@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Takaful Oman Employee Homepage</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <img src="./assets/takaful-oman-logo.png" alt="Takaful Oman logo" class="brand-logo" />
+      <div>
+        <h1>Takaful Oman Employee Homepage</h1>
+        <p class="subtitle">Your daily start page for search, links, and company updates</p>
+      </div>
+    </div>
+    <div class="session-box">
+      <p id="sessionStatus">Signed in as: Guest</p>
+      <button id="logoutButton" class="hidden">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Search with Google</h2>
+      <form id="searchForm" class="search-row">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search Google..."
+          autocomplete="off"
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="section-head">
+          <h2>Important Links</h2>
+          <p>Quick access to frequently used company systems.</p>
+        </div>
+        <div id="linksList" class="links-list"></div>
+      </article>
+
+      <article class="card">
+        <div class="section-head">
+          <h2>Latest Announcements</h2>
+          <p>Stay updated with the latest company news.</p>
+        </div>
+        <div id="announcementsList" class="announcements-list"></div>
+      </article>
+    </section>
+
+    <section class="card" id="authCard">
+      <h2>Employee Login</h2>
+      <p class="hint">
+        Login unlocks role-based permissions for announcement publishing and link management.
+      </p>
+      <form id="loginForm" class="auth-form">
+        <label>
+          Username
+          <input id="usernameInput" type="text" autocomplete="username" required />
+        </label>
+        <label>
+          Password
+          <input id="passwordInput" type="password" autocomplete="current-password" required />
+        </label>
+        <button type="submit">Login</button>
+      </form>
+      <p class="hint demo-creds">
+        Demo users:
+        <span>superadmin / TAOI@2026</span>,
+        <span>publisher / TAOI@2026</span>,
+        <span>employee / TAOI@2026</span>
+      </p>
+      <p id="authError" class="error hidden"></p>
+    </section>
+
+    <section class="card hidden" id="adminPanel">
+      <h2>Admin & Publishing Panel</h2>
+      <p id="roleDescription" class="hint"></p>
+
+      <div class="admin-grid">
+        <form id="announcementForm" class="admin-form hidden">
+          <h3>Publish Announcement</h3>
+          <label>
+            Title
+            <input id="announcementTitle" type="text" maxlength="120" required />
+          </label>
+          <label>
+            Message
+            <textarea id="announcementMessage" rows="4" maxlength="500" required></textarea>
+          </label>
+          <button type="submit">Publish</button>
+        </form>
+
+        <form id="linkForm" class="admin-form hidden">
+          <h3>Add Important Link</h3>
+          <label>
+            Link Label
+            <input id="linkLabel" type="text" maxlength="80" required />
+          </label>
+          <label>
+            URL
+            <input id="linkUrl" type="url" placeholder="https://example.com" required />
+          </label>
+          <button type="submit">Add Link</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
